@@ -34,30 +34,18 @@
                         </div>
                     </div>
 
-                    <input type="text" id="status" name="status" class="form-control form-control-md shadow-sm"
-                        value="{{ $ticket->status }}" required hidden>
                     <!-- Status Field -->
                     <div class="form-group row mb-3">
                         <label for="status" class="col-sm-3 col-form-label">Status</label>
                         <div class="col-sm-9">
-                            <div
-                                class="btn 
-        {{ $ticket->status == 'pending' ? 'btn-danger' : '' }}
-        {{ $ticket->status == 'in_progress' ? 'btn-warning' : '' }}
-        {{ $ticket->status == 'resolved' ? 'btn-success' : '' }}">
-
-                                <!-- Ikon sesuai status -->
-                                <i
-                                    class="fas 
-                            {{ $ticket->status == 'pending' ? 'fa-exclamation-triangle' : '' }}
-                            {{ $ticket->status == 'in_progress' ? 'fa-clock' : '' }}
-                            {{ $ticket->status == 'resolved' ? 'fa-check' : '' }}">
-                                </i>
-
-                                {{ ucfirst($ticket->status) }}
-                            </div>
+                            <select name="status" id="status" class="form-select form-select-md shadow-sm" required>
+                                <option value="pending" {{ $ticket->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                <option value="in_progress" {{ $ticket->status == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+                                <option value="resolved" {{ $ticket->status == 'resolved' ? 'selected' : '' }}>Resolved</option>
+                                <option value="open" {{ $ticket->status == 'open' ? 'selected' : '' }}>Open</option>
+                                <option value="close" {{ $ticket->status == 'close' ? 'selected' : '' }}>Close</option>
+                            </select>
                         </div>
-
                     </div>
 
                     <!-- Description Field -->
