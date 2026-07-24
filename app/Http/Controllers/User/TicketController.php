@@ -53,7 +53,12 @@ class TicketController extends Controller
 
     public function edit($id)
     {
-        $ticket = Ticket::where('user_id', auth()->id())->findOrFail($id);
+        // Izinkan akses edit jika user adalah pemilik tiket atau assigned person
+        $ticket = Ticket::where(function($q) {
+            $q->where('user_id', auth()->id())
+              ->orWhere('assigned_to', auth()->id());
+        })->findOrFail($id);
+
         return view('user.tickets.edit', compact('ticket'));
     }
 
@@ -61,7 +66,12 @@ class TicketController extends Controller
     {
 
         // dd($request->toArray());
-        $ticket = Ticket::where('user_id', auth()->id())->findOrFail($id);
+        // Pastikan user boleh mengupdate tiket (pemilik atau assigned)
+        $ticket = Ticket::where(function($q) {
+            $q->where('user_id', auth()->id())
+              ->orWhere('assigned_to', auth()->id());
+        })->findOrFail($id);
+
         $ticket->update([
             'title' => $request->title,
             'category' => $request->category,
