@@ -50,12 +50,21 @@
                                     <td class="align-middle">{{ $ticket->title }}</td>
                                     <td class="align-middle">{{ $ticket->category }}</td>
                                     <td class="align-middle text-center">
-                                        <span
-                                            class="badge 
-                                            @if ($ticket->status === 'resolved') bg-success 
-                                            @elseif ($ticket->status === 'in_progress') bg-warning 
-                                            @else bg-danger @endif">
-                                            {{ ucfirst($ticket->status) }}
+                                        <span class="badge 
+                                            @if ($ticket->status === 'resolved') bg-success
+                                            @elseif ($ticket->status === 'in_progress') bg-warning
+                                            @elseif ($ticket->status === 'pending') bg-danger
+                                            @elseif ($ticket->status === 'open') bg-primary
+                                            @elseif ($ticket->status === 'close') bg-secondary
+                                            @else bg-secondary @endif">
+                                            <i class="fas 
+                                                @if ($ticket->status === 'resolved') fa-check
+                                                @elseif ($ticket->status === 'in_progress') fa-clock
+                                                @elseif ($ticket->status === 'pending') fa-exclamation-triangle
+                                                @elseif ($ticket->status === 'open') fa-folder-open
+                                                @elseif ($ticket->status === 'close') fa-times
+                                                @endif"></i>
+                                            {{ ucfirst(str_replace('_', ' ', $ticket->status)) }}
                                         </span>
                                     </td>
                                     <td class="align-middle">{{ $ticket->description ?? 'Tidak ada deskripsi.' }}</td>
