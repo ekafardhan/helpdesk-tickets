@@ -95,6 +95,21 @@
                         </div>
                     </div>
 
+                    <!-- Assigned Person Field -->
+                    <div class="form-group row mb-3">
+                        <label for="assigned_to" class="col-sm-3 col-form-label">Assigned Person</label>
+                        <div class="col-sm-9">
+                            <select class="form-select form-select-md shadow-sm" id="assigned_to" name="assigned_to">
+                                <option value="">-- Tidak ada --</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" {{ $ticket->assigned_to == $user->id ? 'selected' : '' }}>
+                                        {{ $user->name }} ({{ $user->email }})
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <!-- User Field -->
                     <div class="form-group row mb-3">
                         <label for="user" class="col-sm-3 col-form-label">Nama User</label>

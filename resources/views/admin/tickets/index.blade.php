@@ -37,6 +37,7 @@
                                 <th>Kategori</th>
                                 <th>Status</th>
                                 <th>Deskripsi</th>
+                                <th>Assigned To</th>
                                 <th>Nama User</th>
                                 <th>Tanggal Buat</th>
                                 <th>Aksi</th>
@@ -58,6 +59,7 @@
                                         </span>
                                     </td>
                                     <td class="align-middle">{{ $ticket->description ?? 'Tidak ada deskripsi.' }}</td>
+                                    <td class="align-middle">{{ $ticket->assignedTo->name ?? '-' }}</td>
                                     <td class="align-middle">{{ $ticket->user->name ?? 'Tidak Ditemukan' }}</td>
                                     <td class="align-middle">{{ $ticket->created_at ?? 'Tidak Ditemukan' }}</td>
                                     <td class="text-center align-middle">

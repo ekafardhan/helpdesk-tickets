@@ -50,6 +50,19 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="assigned_to" class="form-label">Assigned Person</label>
+                        <select name="assigned_to" id="assigned_to" class="form-select @error('assigned_to') is-invalid @enderror">
+                            <option value="" selected>-- Pilih Assigned Person (Opsional) --</option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->email }})</option>
+                            @endforeach
+                        </select>
+                        @error('assigned_to')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea name="description" id="description" rows="4"
                             class="form-control @error('description') is-invalid @enderror" placeholder="Jelaskan masalah Anda secara detail"

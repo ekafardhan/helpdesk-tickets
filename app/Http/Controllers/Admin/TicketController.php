@@ -53,7 +53,8 @@ class TicketController extends Controller
 
     public function create()
     {
-        return view('admin.tickets.create'); // Menampilkan form create tiket
+        $users = User::all(); // Daftar user untuk field Assigned To
+        return view('admin.tickets.create', compact('users')); // Menampilkan form create tiket
     }
 
     public function store(Request $request)
@@ -63,6 +64,7 @@ class TicketController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|in:hardware,software',
             'status' => 'required|in:pending,in_progress,resolved,open,close',
+            'assigned_to' => 'nullable|exists:users,id',
             'description' => 'required|string', // Menambahkan deskripsi
         ]);
 
@@ -72,6 +74,7 @@ class TicketController extends Controller
             'title' => $request->title,
             'category' => $request->category,
             'status' => $request->status,
+            'assigned_to' => $request->assigned_to,
             'description' => $request->description, // Menyimpan deskripsi
         ]);
 
@@ -92,6 +95,7 @@ class TicketController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|in:hardware,software',
             'status' => 'required|in:pending,in_progress,resolved,open,close', // Adding status validation
+            'assigned_to' => 'nullable|exists:users,id',
             'description' => 'required|string',
             'user_id' => 'required|exists:users,id',
         ]);

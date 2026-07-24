@@ -156,6 +156,7 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` enum('hardware','software') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('pending','in_progress','resolved','open','close') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `assigned_to` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),

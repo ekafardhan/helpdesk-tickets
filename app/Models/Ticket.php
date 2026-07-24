@@ -19,7 +19,14 @@ class Ticket extends Model
         'description',
         'category',
         'status',
+        'assigned_to',
     ];
+
+    // Relasi: assigned person (user who handle the ticket)
+    public function assignedTo()
+    {
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
 
     // Relasi: Ticket milik User
     public function user()
