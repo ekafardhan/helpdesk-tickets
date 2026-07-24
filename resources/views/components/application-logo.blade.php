@@ -4,4 +4,8 @@
 </svg> --}}
 {{-- <img src="https://png.pngtree.com/png-vector/20230816/ourmid/pngtree-hello-kitty-christmas-cute-logo-clipart-vector-png-image_7000763.png"
     width="20%" alt=""> --}}
-<img src="{{ asset('img/logo_it_helpdesk.png') }}" alt="Laporan IT" width="90">
+<img 
+    src="{{ asset('img/logo_it_helpdesk.png') }}" 
+    alt="Internal IT Ticket Dashboard"
+    class="w-40 h-auto"
+/>
