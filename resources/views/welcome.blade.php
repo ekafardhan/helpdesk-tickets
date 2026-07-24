@@ -10,7 +10,7 @@
 
 <body class="bg-gradient-to-r from-blue-500 to-blue-300 min-h-screen flex items-center justify-center p-4">
     <div class="bg-white rounded-lg shadow-lg p-6 md:p-12 w-full max-w-2xl text-center">
-        <img src="{{ asset('img/laporit.png') }}" alt="Laporan IT" class="mx-auto w-32 md:w-48 h-auto mb-6">
+        <img src="{{ asset('img/logo_it_helpdesk.png') }}" alt="Laporan IT" class="mx-auto w-32 md:w-48 h-auto mb-6">
         <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
             Selamat Datang di <span class="text-blue-500">Laporan IT</span>
         </h1>
