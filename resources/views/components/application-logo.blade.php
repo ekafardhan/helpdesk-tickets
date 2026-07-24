@@ -6,6 +6,6 @@
     width="20%" alt=""> --}}
 <img 
     src="{{ asset('img/logo_it_helpdesk.png') }}" 
-    alt="Internal IT Ticket Dashboard"
-    {{ $attributes->merge(['class' => 'h-auto']) }}
-/>
+    alt="Ticket" 
+    class="mx-auto w-40 md:w-52 h-auto mb-6">
+
