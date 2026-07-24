@@ -4,10 +4,10 @@
     <div class="flex justify-center items-center">
         <div class="text-center">
             <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                Selamat Datang di <span class="text-blue-500">Lapor IT</span>
+                Selamat Datang di <span class="text-blue-500">Ticket</span>
             </h3>
             <p class="text-gray-600 text-sm md:text-base mb-6">
-                Silakan masuk dengan akun Anda untuk mengakses sistem Lapor IT anda.
+                Silakan masuk dengan akun Anda untuk mengakses sistem Ticket anda.
             </p>
         </div>
     </div>
