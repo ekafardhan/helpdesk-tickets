@@ -36,6 +36,7 @@
                                 <th>Judul</th>
                                 <th>Kategori</th>
                                 <th>Deskripsi</th>
+                                <th>Assigned To</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -47,6 +48,11 @@
                                     <td class="align-middle">{{ $ticket->title }}</td>
                                     <td class="align-middle">{{ $ticket->category }}</td>
                                     <td class="align-middle">{{ $ticket->description ?? 'Tidak ada deskripsi.' }}</td>
+                                    <td class="align-middle">{{ $ticket->assignedTo->name ?? '-' }}
+                                        @if($ticket->assigned_to === auth()->id())
+                                            <span class="badge bg-info ms-2">Assigned to you</span>
+                                        @endif
+                                    </td>
                                     <td class="align-middle text-center">
                                         <span
                                             class="badge 
@@ -87,7 +93,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="text-center text-muted">Tidak ada tiket ditemukan.</td>
+                                    <td colspan="7" class="text-center text-muted">Tidak ada tiket ditemukan.</td>
                                 </tr>
                             @endforelse
                         </tbody>
