@@ -67,6 +67,22 @@
                                     </span>
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="open" value="open" {{ $ticket->status == 'open' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="open">
+                                    <span class="badge bg-primary">
+                                        <i class="fas fa-folder-open"></i> Open
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="close" value="close" {{ $ticket->status == 'close' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="close">
+                                    <span class="badge bg-secondary">
+                                        <i class="fas fa-times"></i> Close
+                                    </span>
+                                </label>
+                            </div>
                         </div>
                     </div>
 

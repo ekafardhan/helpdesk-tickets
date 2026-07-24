@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->enum('category', ['hardware', 'software']);
-            $table->enum('status', ['pending', 'in_progress', 'resolved'])->default('pending');
+            $table->enum('status', ['pending', 'in_progress', 'resolved', 'open', 'close'])->default('pending');
             $table->timestamps();
         });
     }

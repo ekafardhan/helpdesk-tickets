@@ -30,7 +30,7 @@ class TicketController extends Controller
 
         // Format data untuk grafik
         $dates = [];
-        $statuses = ['resolved', 'in_progress', 'pending']; // Status yang ada
+        $statuses = ['pending', 'in_progress', 'resolved', 'open', 'close']; // Status yang ada
         $chartData = [];
 
         foreach ($ticketsPerDate as $date => $data) {
@@ -62,7 +62,7 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|in:hardware,software',
-            'status' => 'required|in:pending,in_progress,resolved',
+            'status' => 'required|in:pending,in_progress,resolved,open,close',
             'description' => 'required|string', // Menambahkan deskripsi
         ]);
 
@@ -91,7 +91,7 @@ class TicketController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|in:hardware,software',
-            'status' => 'required|in:pending,in_progress,resolved', // Adding status validation
+            'status' => 'required|in:pending,in_progress,resolved,open,close', // Adding status validation
             'description' => 'required|string',
             'user_id' => 'required|exists:users,id',
         ]);

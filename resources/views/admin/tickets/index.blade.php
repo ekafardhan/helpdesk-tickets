@@ -142,14 +142,18 @@
                     label: status.charAt(0).toUpperCase() + status.slice(1), // Kapitalisasi status
                     data: chartData.map(row => row[status]), // Ambil data jumlah tiket per status
                     backgroundColor: [
-                        'rgba(75, 192, 192, 0.5)', // resolved
+                        'rgba(255, 99, 132, 0.5)', // pending
                         'rgba(255, 206, 86, 0.5)', // in_progress
-                        'rgba(255, 99, 132, 0.5)' // pending
+                        'rgba(75, 192, 192, 0.5)', // resolved
+                        'rgba(54, 162, 235, 0.5)', // open
+                        'rgba(201, 203, 207, 0.5)' // close
                     ][index],
                     borderColor: [
-                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
                         'rgba(255, 206, 86, 1)',
-                        'rgba(255, 99, 132, 1)'
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(201, 203, 207, 1)'
                     ][index],
                     borderWidth: 1
                 };

@@ -41,6 +41,8 @@
                             <option value="pending">Pending</option>
                             <option value="in_progress">In Progress</option>
                             <option value="resolved">Resolved</option>
+                            <option value="open">Open</option>
+                            <option value="close">Close</option>
                         </select>
                         @error('status')
                             <div class="invalid-feedback">{{ $message }}</div>
