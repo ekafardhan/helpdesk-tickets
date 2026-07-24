@@ -12,7 +12,12 @@ class TicketController extends Controller
 {
     public function index()
     {
-        $tickets = Ticket::where('user_id', auth()->id())->get();
+        // Tampilkan tiket yang dibuat oleh user ini atau yang di-assign ke user ini
+        $tickets = Ticket::where(function($q) {
+            $q->where('user_id', auth()->id())
+              ->orWhere('assigned_to', auth()->id());
+        })->get();
+
         return view('user.tickets.index', compact('tickets'));
     }
 
